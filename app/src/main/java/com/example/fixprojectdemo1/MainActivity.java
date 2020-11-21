@@ -3,8 +3,14 @@ package com.example.fixprojectdemo1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +37,13 @@ public class MainActivity extends AppCompatActivity {
         calculator.calculator();
 
     }
-
+//81515549   60553688
 
     public void doFix(View view) {
+        File file = new File(Environment.getExternalStorageDirectory(),
+                "fix.dex");
+        DexManager dexManager = new DexManager(this);
+        dexManager.load(file);
+
     }
 }
